@@ -21,14 +21,38 @@ export class App extends Component {
     }));
   };
 
+  onFilterChange = e => {
+    this.setState({ filter: e.target.value });
+  };
+
+  getFilteredContact = () => {
+    const { contacts, filter } = this.state;
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase().trim())
+    );
+  };
+
+  deleteContact = () => {
+    console.log('this contact was deleted');
+  };
+  // handleDelete = id => {
+  //   this.setState({ users: this.state.users.filter(user => user.id !== id) });
+  // };
+
   render() {
+    const filteredContacts = this.getFilteredContact();
+
     return (
       <div>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
-        <Filter filter={this.state.filter} />
-        <ContactList contacts={this.state.contacts} />
+        <Filter filter={this.state.filter} onFilter={this.onFilterChange} />
+        <ContactList
+          contacts={filteredContacts}
+          deleteContact={this.deleteContact}
+        />
       </div>
     );
   }
