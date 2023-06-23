@@ -16,6 +16,14 @@ export class App extends Component {
       id: crypto.randomUUID(),
     };
 
+    const isExist = this.state.contacts.find(
+      elem => elem.name.toLowerCase() === name.toLowerCase()
+    );
+    if (isExist) {
+      alert(`"${name}" is already in contacts!`);
+      return;
+    }
+
     this.setState(prevState => ({
       contacts: [...prevState.contacts, contact],
     }));
