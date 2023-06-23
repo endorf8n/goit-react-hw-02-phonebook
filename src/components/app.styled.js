@@ -17,7 +17,7 @@ export const TitleApp = styled.h1`
 `;
 
 export const TitleContacts = styled.h2`
-  padding: ${({ theme }) => theme.spacing(2)};
+  padding-top: ${({ theme }) => theme.spacing(3)};
   font-size: ${({ theme }) => theme.fontSizes.medium};
   color: ${({ theme }) => theme.colors.violet};
 `;

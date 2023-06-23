@@ -30,6 +30,10 @@ export class App extends Component {
     }));
   };
 
+  countTotalContacts = () => {
+    return this.state.contacts.length;
+  };
+
   onFilterChange = e => {
     this.setState({ filter: e.target.value });
   };
@@ -50,17 +54,25 @@ export class App extends Component {
 
   render() {
     const filteredContacts = this.getFilteredContact();
+    const total = this.countTotalContacts();
 
     return (
       <AppWrapper>
         <TitleApp>Phonebook</TitleApp>
         <ContactForm onSubmit={this.addContact} />
         <TitleContacts>Contacts</TitleContacts>
-        <Filter filter={this.state.filter} onFilter={this.onFilterChange} />
-        <ContactList
-          contacts={filteredContacts}
-          deleteContact={this.deleteContact}
-        />
+
+        {total === 0 ? (
+          'There is no contacts in your phonebook!'
+        ) : (
+          <>
+            <Filter filter={this.state.filter} onFilter={this.onFilterChange} />
+            <ContactList
+              contacts={filteredContacts}
+              deleteContact={this.deleteContact}
+            />
+          </>
+        )}
       </AppWrapper>
     );
   }
