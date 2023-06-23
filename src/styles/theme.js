@@ -1,7 +1,7 @@
 export const theme = Object.freeze({
   colors: {
     lightGray: '#e0e0e0',
-    green: '#228B22',
+    lightRed: '#FAA0A0',
     red: '#D22B2B',
     violet: '#34004a',
     light: '#def3f6',
@@ -11,9 +11,10 @@ export const theme = Object.freeze({
     white: '#ffffff',
   },
   fontSizes: {
-    small: '14px',
-    medium: '18px',
-    large: '22px',
+    smallest: '14px',
+    small: '20px',
+    medium: '28px',
+    large: '36px',
   },
   spacing: value => `${4 * value}px`,
   shadows: {

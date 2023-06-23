@@ -29,4 +29,8 @@ img {
   height: auto;
 }
 
+form {
+  margin: 0;
+}
+
   `;
