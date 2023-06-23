@@ -33,12 +33,11 @@ export class App extends Component {
     );
   };
 
-  deleteContact = () => {
-    console.log('this contact was deleted');
+  deleteContact = id => {
+    this.setState({
+      contacts: this.state.contacts.filter(contact => contact.id !== id),
+    });
   };
-  // handleDelete = id => {
-  //   this.setState({ users: this.state.users.filter(user => user.id !== id) });
-  // };
 
   render() {
     const filteredContacts = this.getFilteredContact();
